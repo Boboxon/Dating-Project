@@ -10,22 +10,16 @@ nextBtn.addEventListener("click", randomUsers);
 const baseFemaleURL = "https://randomuser.me/api/?gender=female";
 const baseMaleURL = "https://randomuser.me/api/?gender=male";
 
-// const getUsers = async (user) => {
-//   try {
-//     return fetch(`${baseURL}/${user}`);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-alert("Before searching, You should select Male or Female button!!!");
+// alert("Before searching, You should select Male or Female button!!!");
 
 function randomUsers() {
   removeMaleButton();
   fetch(`${baseFemaleURL}`)
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       let userData = data.results[0];
+
       let imgoutput = `<img class="imgChange" src="${userData.picture.medium}" class="rounded" alt="...">`;
       let output = `<ul class="list-group">
       <li class="list-group-item "><strong class="text-left">Full Name:</strong>${userData.name.first} ${userData.name.last}</li>
@@ -48,7 +42,7 @@ function getMaleInfo() {
     .then((response) => response.json())
     .then(function (data) {
       console.log(data);
-      let userData = data.results[0];
+      let userData = data.results[0]; //  getti=ng the value
       let imgoutput = `<img class="imgChange" src="${userData.picture.medium}" class="rounded" alt="...">`;
       let output = `<ul class="list-group">
    
@@ -64,7 +58,7 @@ function getMaleInfo() {
     });
 }
 
-//diappear one button
+//diappear female button
 
 function removeFemaleButton() {
   if (nextBtn != "clicked") {
